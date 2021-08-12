@@ -1,7 +1,7 @@
 import React from "react";
 import { useHistory, useLocation } from "react-router";
 
-import { Container, makeStyles } from "@material-ui/core";
+import { Box, Container, makeStyles } from "@material-ui/core";
 import Drawer from "@material-ui/core/Drawer";
 import Typography from "@material-ui/core/Typography";
 import { List, ListItem, ListItemIcon, ListItemText } from "@material-ui/core";
@@ -28,6 +28,7 @@ const useStyles = makeStyles((theme) => {
       textAlign: "center",
       padding: "0",
       background: theme.palette.info.main,
+      overflow: "hidden",
     },
     page: {
       background: "#f9f9f9",
@@ -36,9 +37,7 @@ const useStyles = makeStyles((theme) => {
     },
     drawer: {
       width: drawerWidth,
-    },
-    drawerPaper: {
-      width: drawerWidth,
+      minHeight: "100vh",
     },
     root: {
       display: "flex",
@@ -97,53 +96,42 @@ const SideNav: React.FC = ({ children }) => {
   ];
 
   return (
-    <div className={classes.root}>
-      <Drawer
-        className={classes.drawer}
-        variant='permanent'
-        anchor='left'
-        classes={{ paper: classes.drawerPaper }}
-      >
-        <Container component='div' className={classes.containerTitle}>
-          <Typography variant='h2' className={classes.title}>
-            MATH<br></br>TEAM
-          </Typography>
-        </Container>
+    <Box className={classes.drawer} border={1} borderColor='text.primary'>
+      <Container component='div' className={classes.containerTitle}>
+        <Typography variant='h2' className={classes.title}>
+          MATH<br></br>TEAM
+        </Typography>
+      </Container>
 
-        {/* list / links */}
-        <Container component='div' className={classes.containerLinks}>
-          <List className={classes.list}>
-            {menuItems.map((e) => {
-              return (
-                <ListItem
-                  className={classes.link}
-                  button
-                  key={e.text}
-                  onClick={() => {
-                    history.push(e.path);
+      {/* list / links */}
+      <Container component='div' className={classes.containerLinks}>
+        <List className={classes.list}>
+          {menuItems.map((e) => {
+            return (
+              <ListItem
+                className={classes.link}
+                button
+                key={e.text}
+                onClick={() => {
+                  history.push(e.path);
+                }}
+                // className={
+                //   location.pathname == e.path ? classes.active : undefined
+                // }
+              >
+                <ListItemText
+                  primary={e.text}
+                  primaryTypographyProps={{
+                    variant: "h3",
+                    color: "textSecondary",
                   }}
-                  // className={
-                  //   location.pathname == e.path ? classes.active : undefined
-                  // }
-                >
-                  <ListItemText
-                    primary={e.text}
-                    primaryTypographyProps={{
-                      variant: "h3",
-                      color: "textSecondary",
-                    }}
-                  />
-                </ListItem>
-              );
-            })}
-          </List>
-        </Container>
-      </Drawer>
-      <div className={classes.page}>
-        <div className={classes.toolbar}></div>
-        {children}
-      </div>
-    </div>
+                />
+              </ListItem>
+            );
+          })}
+        </List>
+      </Container>
+    </Box>
   );
 };
 

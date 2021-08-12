@@ -13,6 +13,7 @@ const theme = createTheme({
       dark: "#313131",
     },
     text: {
+      primary: "#5A5A5A",
       secondary: "#FFFFFF",
     },
   },
@@ -33,6 +34,19 @@ const theme = createTheme({
       fontWeight: 500,
       fontSize: "25px",
       lineHeight: 1,
+    },
+    h4: {
+      fontFamily: "poster-gothic-round-atf, sans-serif",
+      fontWeight: 300,
+      fontSize: "1.2vw",
+      lineHeight: 1,
+    },
+    body1: {
+      fontFamily: "Roboto",
+      fontWeight: 300,
+      fontSize: "23px",
+      lineHeight: 2,
+      letterSpacing: "0.00938em",
     },
   },
 });
