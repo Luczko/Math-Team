@@ -23,6 +23,12 @@ const theme = createTheme({
     fontWeightRegular: 500,
     fontWeightMedium: 600,
     fontWeightBold: 700,
+    h1: {
+      fontFamily: "poster-gothic-round-atf, sans-serif",
+      fontWeight: 300,
+      fontSize: "2.2vw",
+      lineHeight: "90px",
+    },
     h2: {
       fontFamily: "Tachyon",
       fontWeight: 400,
