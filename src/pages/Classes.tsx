@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     grid: {
       margin: "0 auto",
-      padding: theme.spacing(0, 5),
+      padding: theme.spacing(0, 3),
       [theme.breakpoints.down("lg")]: {
         padding: theme.spacing(0, 2),
       },
@@ -54,6 +54,11 @@ const useStyles = makeStyles((theme: Theme) =>
       fontWeight: 400,
       fontFamily: "poster-gothic-round-atf, sans-serif",
     },
+    image: {
+      display: "block",
+      width: "80%",
+      margin: "0 auto",
+    },
   })
 );
 const Classes = () => {
@@ -71,7 +76,7 @@ const Classes = () => {
         </Grid>
         <Grid item xs={4} md={4} lg={4} xl={4} className={classes.grid}>
           <Container>
-            <AppBar position='static' className={classes.header} elevation={0}>
+            <AppBar position='static' className={classes.header} elevation={5}>
               <Toolbar>
                 <Typography variant='h4' color='textPrimary' align='justify'>
                   PRZYJAZNA ATMOSFERA
@@ -85,14 +90,14 @@ const Classes = () => {
               nich dotrzeć. Przed zajęciami prawie zawsze przywita Was Bunio -
               kot mojej żony.
             </Typography>
-            <Box>
-              <img src={image1} alt='costam' />
+            <Box marginTop='40px'>
+              <img src={image1} alt='costam' className={classes.image} />
             </Box>
           </Container>
         </Grid>
         <Grid item xs={4} md={4} lg={4} xl={4} className={classes.grid}>
           <Container>
-            <AppBar position='static' className={classes.header} elevation={0}>
+            <AppBar position='static' className={classes.header} elevation={5}>
               <Toolbar>
                 <Typography variant='h4' color='textPrimary' align='justify'>
                   MATEMATYKA DLA KAŻDEGO
@@ -120,7 +125,7 @@ const Classes = () => {
         </Grid>
         <Grid item xs={4} md={4} lg={4} xl={4} className={classes.grid}>
           <Container>
-            <AppBar position='static' className={classes.header} elevation={0}>
+            <AppBar position='static' className={classes.header} elevation={5}>
               <Toolbar>
                 <Typography variant='h4' color='textPrimary' align='justify'>
                   PROFESJONALNE PODEJŚCIE
@@ -135,8 +140,8 @@ const Classes = () => {
               uważam, że powinna być zrozumiała dla każdego i jest! O czym
               przekonasz się zapisując się na moje zajęcia,
             </Typography>
-            <Box>
-              <img src={image1} alt='costam' />
+            <Box marginTop='40px'>
+              <img src={image1} alt='costam' className={classes.image} />
             </Box>
           </Container>
         </Grid>

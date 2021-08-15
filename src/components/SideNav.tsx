@@ -37,14 +37,12 @@ const useStyles = makeStyles((theme) => {
     },
     drawer: {
       width: drawerWidth,
-      minHeight: "100vh",
+      height: "100vh",
     },
     root: {
       display: "flex",
     },
-    active: {
-      background: "#f4f4f4",
-    },
+
     title: {
       display: "inline-block",
       verticalAlign: "middle",
@@ -56,6 +54,11 @@ const useStyles = makeStyles((theme) => {
     link: {
       textAlign: "center",
       height: "100px",
+    },
+    active: {
+      textAlign: "center",
+      height: "100px",
+      borderBottom: "3px solid yellow",
     },
     toolbar: theme.mixins.toolbar,
     date: {
@@ -70,67 +73,74 @@ const useStyles = makeStyles((theme) => {
 const SideNav: React.FC = ({ children }) => {
   const classes = useStyles();
   const history = useHistory();
-  //   const location = useLocation();
+  const location = useLocation();
 
   const menuItems = [
     {
       text: "ZAJĘCIA",
-      path: "/",
+      path: "/zajecia",
     },
     {
       text: "OFERTA",
-      path: "/create",
+      path: "/oferta",
     },
     {
       text: "CENNIK",
-      path: "/create",
+      path: "/cennik",
     },
     {
       text: "O MNIE",
-      path: "/create",
+      path: "/omnie",
     },
     {
       text: "KONTAKT",
-      path: "/create",
+      path: "/kontakt",
     },
   ];
 
   return (
-    <Box className={classes.drawer} border={1} borderColor='text.primary'>
-      <Container component='div' className={classes.containerTitle}>
-        <Typography variant='h2' className={classes.title}>
-          MATH<br></br>TEAM
-        </Typography>
-      </Container>
+    <Box display='flex'>
+      <Box
+        className={classes.drawer}
+        border={1}
+        borderColor='text.primary'
+        position='fixed'
+      >
+        <Container component='div' className={classes.containerTitle}>
+          <Typography variant='h2' className={classes.title}>
+            MATH<br></br>TEAM
+          </Typography>
+        </Container>
 
-      {/* list / links */}
-      <Container component='div' className={classes.containerLinks}>
-        <List className={classes.list}>
-          {menuItems.map((e) => {
-            return (
-              <ListItem
-                className={classes.link}
-                button
-                key={e.text}
-                onClick={() => {
-                  history.push(e.path);
-                }}
-                // className={
-                //   location.pathname == e.path ? classes.active : undefined
-                // }
-              >
-                <ListItemText
-                  primary={e.text}
-                  primaryTypographyProps={{
-                    variant: "h3",
-                    color: "textSecondary",
+        {/* list / links */}
+        <Container component='div' className={classes.containerLinks}>
+          <List className={classes.list}>
+            {menuItems.map((e) => {
+              return (
+                <ListItem
+                  button
+                  key={e.text}
+                  onClick={() => {
+                    history.push(e.path);
                   }}
-                />
-              </ListItem>
-            );
-          })}
-        </List>
-      </Container>
+                  className={
+                    location.pathname == e.path ? classes.active : classes.link
+                  }
+                >
+                  <ListItemText
+                    primary={e.text}
+                    primaryTypographyProps={{
+                      variant: "h3",
+                      color: "textSecondary",
+                    }}
+                  />
+                </ListItem>
+              );
+            })}
+          </List>
+        </Container>
+      </Box>
+      <Box marginLeft='234px'>{children}</Box>
     </Box>
   );
 };

@@ -1,8 +1,29 @@
 import React from "react";
-import "./App.css";
+import { BrowserRouter as Switch, Route } from "react-router-dom";
 
-function Main() {
-  return <div className='App'></div>;
+import Classes from "../pages/Classes";
+import Offer from "../pages/Offer";
+import PriceList from "../pages/PriceList";
+
+function App() {
+  return (
+    <>
+      <Switch>
+        <Route exact path='/'>
+          <Classes />
+        </Route>
+        <Route path='/oferta'>
+          <Classes />
+        </Route>
+        <Route path='/zajecia'>
+          <Offer />
+        </Route>
+        <Route path='/cennik'>
+          <PriceList />
+        </Route>
+      </Switch>
+    </>
+  );
 }
 
-export default Main;
+export default App;
