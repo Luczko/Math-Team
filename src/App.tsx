@@ -12,6 +12,7 @@ import Classes from "./pages/Classes";
 import PriceList from "./pages/PriceList";
 import Offer from "./pages/Offer";
 import About from "./pages/About";
+import Contact from "./pages/Contact";
 
 function App() {
   return (
@@ -21,7 +22,7 @@ function App() {
           <SideNav>
             <Switch>
               <Route exact path='/'>
-                <Classes />
+                <Offer />
               </Route>
               <Route path='/zajecia'>
                 <Offer />
@@ -34,6 +35,9 @@ function App() {
               </Route>
               <Route path='/omnie'>
                 <About />
+              </Route>
+              <Route path='/kontakt'>
+                <Contact />
               </Route>
             </Switch>
           </SideNav>

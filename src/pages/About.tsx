@@ -12,6 +12,7 @@ import {
 } from "@material-ui/core";
 import image1 from "../images/artboard1.png";
 import image2 from "../images/artboard2.png";
+import { useHistory } from "react-router";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -68,6 +69,7 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 const About = () => {
   const classes = useStyles();
+  const history = useHistory();
 
   return (
     <Container className={classes.container}>
@@ -131,7 +133,14 @@ const About = () => {
           </Container>
         </Grid>
       </Grid>
-      <Button variant='contained' color='secondary' className={classes.button}>
+      <Button
+        onClick={() => {
+          history.push("/kontakt");
+        }}
+        variant='contained'
+        color='secondary'
+        className={classes.button}
+      >
         ZAPISZ SIĘ NA ZAJĘCIA
       </Button>
     </Container>
